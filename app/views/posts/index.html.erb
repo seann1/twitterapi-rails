@@ -1,6 +1,7 @@
+
+<% @tweet = @client.search("#cocacola", result_type: "recent", lang: "en").first %>
 <section id="tweets">
   <ul>
-  	binding.pry
-      <li><%= link_to @tweets, "https://www.twitter.com/#{@tweets}" %></li>
+      <li><%= link_to @tweet.text, "https://www.twitter.com/#{@tweet}" %></li>
   </ul>
 </section>
