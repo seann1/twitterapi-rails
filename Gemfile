@@ -8,6 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development do
   gem 'better_errors'
