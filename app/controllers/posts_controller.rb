@@ -9,6 +9,6 @@ class PostsController < ApplicationController
 	  config.oauth_token_secret = ENV['ACCESS_SECRET']
 		end
 
-  	@tweets = @client.search("#cocacola -rt", result_type: "recent")
+  	@tweets = @client.search("#cocacola", result_type: "recent")
 	end
 end

@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sqlite3'
+gem 'pry'
 
 group :development do
   gem 'better_errors'
