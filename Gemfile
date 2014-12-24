@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'sqlite3'
 
 group :development do
   gem 'better_errors'
