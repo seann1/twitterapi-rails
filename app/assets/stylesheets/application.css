@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+
+canvas { width: 100%; height: 100%; }
