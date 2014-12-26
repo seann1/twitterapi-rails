@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function () {
+
+//looping through the array of words in tweet
+
+for (i = 0; i < gon.text_array.length; i++) {
+	$(".tweet_text").append("<span class=" + "text" + i + ">" + gon.text_array[i] + " " + "</span>")
+};
+
+
+});

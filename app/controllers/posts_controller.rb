@@ -47,6 +47,8 @@ class PostsController < ApplicationController
 
 		@cleantweet = no_link_array.join(" ")
 		@hashtag_string = hashtags.join(" ")
+		gon.text_array = no_link_array
+		gon.hashtags = hashtags
 
 	end
 end
