@@ -29,11 +29,14 @@ for (i = 0; i < gon.hashtags.length; i++) {
 	$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>")
 };
 
+
+var delay_number = 1000;
 for (i = 0; i < gon.text_array.length; i++) {
 
 	var targeted_span = ".text"+i;
 	$(targeted_span).hide();
-	$(targeted_span).fadeIn(1000);
+	$(targeted_span).fadeIn(delay_number);
+	delay_number += 500;
 };
 
 });

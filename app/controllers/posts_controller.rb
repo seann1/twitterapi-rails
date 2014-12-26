@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 		hashtags = []
 
 		tweet.each do |word|
-			if word[0..3].downcase == "http"
+			if word[0..3].downcase == "http" || word == "...:"
 				#dont push to new array
 			elsif word == "&amp;"
 				#dont push to new array
