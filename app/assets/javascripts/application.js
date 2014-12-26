@@ -19,31 +19,36 @@
 $(document).ready(function () {
 //looping through the array of words in tweet
 
-for (i = 0; i < gon.text_array.length; i++) {
-	$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
-	var targeted_div = ".text"+i;
-	$(targeted_div).addClass("text");
+	for (i = 0; i < gon.text_array.length; i++) {
+		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
+		var targeted_div = ".text"+i;
+		$(targeted_div).addClass("text");
 
 
-};
+	};
 
-for (i = 0; i < gon.hashtags.length; i++) {
-	var tagless = gon.hashtags[i].substr(1);
-	$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>");
-};
+	for (i = 0; i < gon.hashtags.length; i++) {
+		//loop through an array of hashtags in tweet
+		//remove hash symbol from beginning of hashtag to use word in link
+		var tagless = gon.hashtags[i].substr(1);
+		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>");
+	};
 
 
-var delay_number = 1000;
-for (i = 0; i < gon.text_array.length; i++) {
+	var delay_number = 1000;
+	for (i = 0; i < gon.text_array.length; i++) {
 
-	var targeted_span = ".text"+i;
-	$(targeted_span).hide();
-	$(targeted_span).fadeIn(delay_number);
-	delay_number += 500;
+		var targeted_span = ".text"+i;
+		$(targeted_span).hide();
+		$(targeted_span).fadeIn(delay_number);
+		delay_number += 500;
+		//create random 4 digit number to use in animate and delay
+		var random_delay = Math.floor(Math.random()*9000) + 1000;
 
-	$(targeted_span).delay(4000).animate({ 
-        bottom: "+=100px",
-    }, 3000 );
-};
+		$(targeted_span).delay((random_delay + 1000)).animate({ 
+	        bottom: "+=300px",
+	        opacity: 0,
+	    }, (random_delay - 100));
+	};
 
 });
