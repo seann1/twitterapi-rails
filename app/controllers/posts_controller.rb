@@ -39,6 +39,7 @@ class PostsController < ApplicationController
 			elsif word[0] == "#"
 				#push hashtags to seperate array
 				hashtags << word
+				no_link_array << word
 			else
 				#push word to new array
 				no_link_array << word

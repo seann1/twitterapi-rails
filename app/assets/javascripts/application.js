@@ -17,12 +17,17 @@
 
 
 $(document).ready(function () {
-
+$(".tweet_text").hide();
 //looping through the array of words in tweet
 
 for (i = 0; i < gon.text_array.length; i++) {
 	$(".tweet_text").append("<span class=" + "text" + i + ">" + gon.text_array[i] + " " + "</span>")
 };
 
+for (i = 0; i < gon.hashtags.length; i++) {
+	$(".hashtags").append("<a href=http://search.twitter.com/search.json?q=%23" + gon.hashtags[i] + " " + "class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>")
+};
+
+$(".tweet_text").fadeIn();
 
 });
