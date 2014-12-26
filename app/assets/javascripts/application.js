@@ -17,17 +17,23 @@
 
 
 $(document).ready(function () {
-$(".tweet_text").hide();
 //looping through the array of words in tweet
 
 for (i = 0; i < gon.text_array.length; i++) {
-	$(".tweet_text").append("<span class=" + "text" + i + ">" + gon.text_array[i] + " " + "</span>")
+	$(".tweet_text").append("<span class=" + "text" + i + ">" + gon.text_array[i] + " " + "</span>");
+
 };
 
 for (i = 0; i < gon.hashtags.length; i++) {
-	$(".hashtags").append("<a href=http://search.twitter.com/search.json?q=%23" + gon.hashtags[i] + " " + "class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>")
+	var tagless = gon.hashtags[i].substr(1);
+	$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>")
 };
 
-$(".tweet_text").fadeIn();
+for (i = 0; i < gon.text_array.length; i++) {
+
+	var targeted_span = ".text"+i;
+	$(targeted_span).hide();
+	$(targeted_span).fadeIn(1000);
+};
 
 });
