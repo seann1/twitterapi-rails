@@ -11,6 +11,9 @@ gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sqlite3'
 gem 'pry'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'gon'
 
 group :development do
   gem 'better_errors'

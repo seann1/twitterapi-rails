@@ -23,16 +23,19 @@ class PostsController < ApplicationController
 			end
 		end
 
-		#no_retweets is an array of tweet objects
+		#no_retweets is an array of tweet objects with RT (retweets) removed
 
 
-		tweet = @tweet[].text.split(' ')
+		tweet = no_retweets[8].text.split(' ')
 		no_link_array = []
 		hashtags = []
-		
+
 		tweet.each do |word|
 			if word[0..3].downcase == "http"
 				#dont push to new array
+			elsif word == "&amp;"
+				#dont push to new array
+
 			elsif word[0] == "#"
 				#push hashtags to seperate array
 				hashtags << word

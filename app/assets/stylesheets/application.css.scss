@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+    font-family: cocacola;
+    src: url('/app/assets/fonts/LOKICOLA.TTF');
+  }
+
+.container {
+	background-color: #fe001a;
+	color: white;
+	font-family: cocacola;
+	font-size: 3em;
+	font-weight: bold;
+}
