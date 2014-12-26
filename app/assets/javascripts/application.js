@@ -20,13 +20,16 @@ $(document).ready(function () {
 //looping through the array of words in tweet
 
 for (i = 0; i < gon.text_array.length; i++) {
-	$(".tweet_text").append("<span class=" + "text" + i + ">" + gon.text_array[i] + " " + "</span>");
+	$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
+	var targeted_div = ".text"+i;
+	$(targeted_div).addClass("text");
+
 
 };
 
 for (i = 0; i < gon.hashtags.length; i++) {
 	var tagless = gon.hashtags[i].substr(1);
-	$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>")
+	$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>");
 };
 
 
@@ -37,6 +40,10 @@ for (i = 0; i < gon.text_array.length; i++) {
 	$(targeted_span).hide();
 	$(targeted_span).fadeIn(delay_number);
 	delay_number += 500;
+
+	$(targeted_span).delay(4000).animate({ 
+        bottom: "+=100px",
+    }, 3000 );
 };
 
 });
