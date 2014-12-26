@@ -9,8 +9,24 @@ class PostsController < ApplicationController
 		  config.oauth_token_secret = ENV['ACCESS_SECRET']
 		end
 
-		@tweet = @client.search("#cocacola", result_type: "recent", lang: "en").first
-		tweet = @tweet.text.split(' ')
+		#take 20 most recent tweets
+		@tweet = @client.search("#cocacola", result_type: "recent", lang: "en").take(20)
+
+		#array of tweets that arent retweets
+		no_retweets = []
+
+		#look for RT and remove them
+		@tweet.each do |tweet|
+			if tweet.text[0..1] == "RT"
+			else
+				no_retweets << tweet
+			end
+		end
+
+		#no_retweets is an array of tweet objects
+
+
+		tweet = @tweet[].text.split(' ')
 		no_link_array = []
 		hashtags = []
 		
