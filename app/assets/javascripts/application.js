@@ -37,24 +37,38 @@ setInterval(function() {
 
 
 	var delay_number = 1000;
+
+	//loop through each word
 	for (i = 0; i < gon.text_array.length; i++) {
 
+		//fade words in in sequence
 		var targeted_span = ".text"+i;
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
 		delay_number += 500;
 		//create random 4 digit number to use in animate and delay
 		var random_delay = Math.floor(Math.random()*9000) + 1000;
-
+		//animate rising and fading out at random delays
 		$(targeted_span).delay((random_delay + 1000)).animate({ 
 	        bottom: "+=300px",
 	        opacity: 0,
 	    }, (random_delay - 100));
 	};
 
+	var hashtag_delay_number = 500;
+
+	//loop through each hashtag
+	for (i = 0; i < gon.hashtags.length; i++) {
+
+		var targeted_hashtag_span = ".hashtag"+i;
+			$(targeted_hashtag_span).hide();
+			$(targeted_hashtag_span).fadeIn(hashtag_delay_number);
+			delay_number += 300;
+	};
+
 setTimeout(function() {
-	$(".text").remove();
-	$(".hashtag").fadeOut();
+	$(".text").fadeOut().remove();
+	$(".hashtag").fadeOut().remove();
 }, (18 * 1000));
 
 }, (20 * 1000));

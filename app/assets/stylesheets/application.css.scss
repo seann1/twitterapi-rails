@@ -17,11 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@font-face {
-    font-family: cocacola;
-    src: url('/app/assets/fonts/LOKICOLA.TTF');
-  }
-
 
 .tweet_text {
 	background-color: #fe001a;
@@ -32,6 +27,12 @@
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
+	height: 350px;
+}
+
+.tweet_text_inner {
+	position: absolute;
+	bottom: 0;
 }
 
 .text {
