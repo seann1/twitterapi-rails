@@ -19,6 +19,7 @@
 $(document).ready(function () {
 //looping through the array of words in tweet
 
+setInterval(function() {
 	for (i = 0; i < gon.text_array.length; i++) {
 		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
@@ -50,5 +51,12 @@ $(document).ready(function () {
 	        opacity: 0,
 	    }, (random_delay - 100));
 	};
+
+setTimeout(function() {
+	$(".text").remove();
+	$(".hashtag").fadeOut();
+}, (18 * 1000));
+
+}, (20 * 1000));
 
 });
