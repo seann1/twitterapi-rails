@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 		end
 
 		#take 20 most recent tweets
-		@tweet = @client.search("#cocacola", result_type: "recent", lang: "en").take(20)
+		@tweet = @client.search("#cocacola", result_type: "recent", lang: "en").take(40)
 
 		#array of tweets that arent retweets
 		gon.no_retweets = []

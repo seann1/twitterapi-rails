@@ -47,7 +47,7 @@ var hashtags = [];
 var no_link_array = [];
 
 for (i = 0; i < current_tweet.length; i++) {
-	if (current_tweet[i].substring(0, 3).toLowerCase() === "http" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
+	if (current_tweet[i].substring(0, 4).toLowerCase() === "http" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
 		//dont push to new array
 	}
 	else if (current_tweet[i].substring(0,1) === "#") {
@@ -128,10 +128,13 @@ opacity: 0,
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(10000).remove();
 		});
+	}, (10 * 1000));
+
+	setTimeout(function() {
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
-	});
-	}, (10 * 1000));
+		});
+		}, (8 * 1000))
 }
 
 //call function on page load
