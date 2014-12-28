@@ -18,7 +18,7 @@
 
 function tweetDisplay() {
 	//rotate container div for tweet
-	$('.tweet_text').delay(5000).transition({
+	$('.tweet_text').delay(200).transition({
   	perspective: '100px',
   	rotateY: '360deg'
 	});
@@ -81,7 +81,7 @@ function tweetDisplay() {
 
 	setTimeout(function() {
 		$(".text").fadeOut(1000, function() {
-			$(this).remove();
+			$(this).delay(5000).remove();
 		});
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
@@ -91,9 +91,11 @@ function tweetDisplay() {
 };
 
 
+//call function on page load
 $(document).ready(function () {
 	tweetDisplay();
 
+//call function on setInterval
 setInterval(function() {
 
 	tweetDisplay();

@@ -29,8 +29,12 @@
 }
 
 
-.tweet_text {
+.tweet_text_outer {
 	background-color: #fe001a;
+	height: 350px;
+}
+
+.tweet_text {
 	color: white;
 	font-size: 2.5em;
 	font-weight: bold;
@@ -38,12 +42,6 @@
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
-	height: 350px;
-}
-
-.animate {
-	-webkit-animation: rise 5s; /* Chrome, Safari, Opera */
-  animation: rise 5s;
 }
 
 .text {
