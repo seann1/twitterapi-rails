@@ -81,12 +81,12 @@ function tweetDisplay() {
 
 	setTimeout(function() {
 		$(".text").fadeOut(1000, function() {
-			$(this).delay(5000).remove();
+			$(this).delay(10000).remove();
 		});
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
 		});
-	}, (8 * 1000));
+	}, (10 * 1000));
 
 };
 
