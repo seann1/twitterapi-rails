@@ -50,19 +50,23 @@ function tweetDisplay() {
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
 		delay_number += 300;
-		//create random 4 digit number to use in animate and delay
-		var random_delay = Math.floor(Math.random()*6000);
+		
+		// //create random 4 digit number to use in animate and delay
+		// var random_delay = Math.floor(Math.random()*8000);
 
-		//if statement to narrow range of random_delay
-		if (random_delay < 1500) {
-			random_delay = random_delay + 500;
-		} else if (random_delay > 3000) {
-			random_delay = random_delay - 2000;
-		} else {
+		// //if statement to narrow range of random_delay
+		// if (random_delay < 1500) {
+		// 	random_delay = random_delay + 500;
+		// } else if (random_delay > 3000) {
+		// 	random_delay = random_delay - 1000;
+		// } else {
 
-		};
+		// };
+
+		var random_delay = [4000, 4180, 4200, 4300, 4400, 3673, 4055, 3888, 3388];
+		var chosen_delay = random_delay[Math.floor(Math.random()*random_delay.length)];
 		//animate rising and fading out at random delays
-		$(targeted_span).delay((random_delay + 1000)).animate({ 
+		$(targeted_span).delay((chosen_delay)).animate({ 
 	        bottom: "+=300px",
 	        opacity: 0,
 	    }, 1000, "easeInQuint");
