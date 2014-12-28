@@ -44,8 +44,8 @@ function tweetDisplay() {
 
 	//rotate container div for tweet
 	$('.tweet_text').delay(200).transition({
-  	perspective: '100px',
-  	rotateY: '360deg'
+  perspective: '100px',
+  rotateY: '360deg'
 	});
 
 	//looping through the array of words in tweet
@@ -53,14 +53,14 @@ function tweetDisplay() {
 		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
 		$(targeted_div).addClass("text");
-	};
+	}
 
 	for (i = 0; i < gon.hashtags.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
 		var tagless = gon.hashtags[i].substr(1);
 		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>");
-	};
+	}
 
 
 	var delay_number = 1000;
@@ -73,23 +73,23 @@ function tweetDisplay() {
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
 		delay_number += 300;
-	};
+	}
 
 	var shuffled_array = shuffle(gon.text_array);
+	function randomInt(min,max) {
+		return Math.floor(Math.random()*(max-min+1)+min);
+	}
 
 		for (i = 0; i < shuffled_array.length; i++) {
 			//this function generates a random number between two numbers
-			function randomInt(min,max) {
-	    	return Math.floor(Math.random()*(max-min+1)+min);
-		};
 
-
+			var targeted_delay_span = ".text"+i;
 		//animate rising and fading out at random delays
-		$(targeted_span).delay(randomInt(3000, 4000)).animate({ 
-	        bottom: "+=300px",
-	        opacity: 0,
-	    }, 1000, "easeInQuint");
-	};
+		$(targeted_delay_span).delay(randomInt(3000, 4000)).animate({
+bottom: "+=300px",
+opacity: 0,
+}, 1000, "easeInQuint");
+	}
 
 	var hashtag_delay_number = 500;
 
@@ -100,7 +100,7 @@ function tweetDisplay() {
 			$(targeted_hashtag_span).hide();
 			$(targeted_hashtag_span).fadeIn(hashtag_delay_number);
 			hashtag_delay_number += 500;
-	};
+	}
 
 	setTimeout(function() {
 		$(".text").fadeOut(1000, function() {
@@ -108,6 +108,7 @@ function tweetDisplay() {
 		});
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
+	});
 	}, (10 * 1000));
 }
 
