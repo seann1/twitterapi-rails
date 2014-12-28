@@ -16,11 +16,14 @@
 //= require_tree .
 //= require jquery.easing
 
+function tweetDisplay() {
+	//rotate container div for tweet
+	$('.tweet_text').delay(5000).transition({
+  	perspective: '100px',
+  	rotateY: '360deg'
+	});
 
-$(document).ready(function () {
-//looping through the array of words in tweet
-
-setInterval(function() {
+	//looping through the array of words in tweet
 	for (i = 0; i < gon.text_array.length; i++) {
 		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
@@ -46,15 +49,15 @@ setInterval(function() {
 		var targeted_span = ".text"+i;
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
-		delay_number += 100;
+		delay_number += 300;
 		//create random 4 digit number to use in animate and delay
 		var random_delay = Math.floor(Math.random()*6000);
 
 		//if statement to narrow range of random_delay
-		if (random_delay < 2000) {
-			random_delay += 3000;
-		} else if (random_delay > 4500) {
-			random_delay -= 2000;
+		if (random_delay < 1500) {
+			random_delay = random_delay + 500;
+		} else if (random_delay > 3000) {
+			random_delay = random_delay - 2000;
 		} else {
 
 		};
@@ -62,7 +65,7 @@ setInterval(function() {
 		$(targeted_span).delay((random_delay + 1000)).animate({ 
 	        bottom: "+=300px",
 	        opacity: 0,
-	    }, 1500, "easeInQuint");
+	    }, 1000, "easeInQuint");
 	};
 
 	var hashtag_delay_number = 500;
@@ -73,7 +76,7 @@ setInterval(function() {
 		var targeted_hashtag_span = ".hashtag"+i;
 			$(targeted_hashtag_span).hide();
 			$(targeted_hashtag_span).fadeIn(hashtag_delay_number);
-			delay_number += 300;
+			hashtag_delay_number += 500;
 	};
 
 	setTimeout(function() {
@@ -84,6 +87,17 @@ setInterval(function() {
 			$(this).remove();
 		});
 	}, (8 * 1000));
+
+};
+
+
+$(document).ready(function () {
+	tweetDisplay();
+
+setInterval(function() {
+
+	tweetDisplay();
+	
 
 }, (13 * 1000));
 
