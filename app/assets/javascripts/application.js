@@ -45,23 +45,25 @@ setInterval(function() {
 		var targeted_span = ".text"+i;
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
-		delay_number += 300;
+		delay_number += 100;
 		//create random 4 digit number to use in animate and delay
 		var random_delay = Math.floor(Math.random()*9000) + 1000;
 
 		//if statement to narrow range of random_delay
-		if (random_delay < 2000) {
-			random_delay += 1000;
-		} else if (random_delay > 6000) {
+		if (random_delay < 2500) {
+			random_delay += 2000;
+		} else if (random_delay > 4500) {
 			random_delay -= 2000;
 		} else {
 
 		};
 		//animate rising and fading out at random delays
-		$(targeted_span).delay((random_delay + 1000)).animate({ 
-	        bottom: "+=300px",
-	        opacity: 0,
-	    }, (random_delay - 100));
+		// $(targeted_span).delay((random_delay + 1000)).animate({ 
+	 //        bottom: "+=300px",
+	 //        opacity: 0,
+	 //    }, (random_delay - 1000));
+
+			$(targeted_span).delay((random_delay + 1000)).addClass("animate");
 	};
 
 	var hashtag_delay_number = 500;

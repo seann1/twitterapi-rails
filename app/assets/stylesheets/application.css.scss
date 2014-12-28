@@ -23,16 +23,16 @@
 	color: white;
 	font-size: 2.5em;
 	font-weight: bold;
-	padding-top: 10px;
+	padding-top: 100px;
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
 	height: 350px;
 }
 
-.tweet_text_inner {
-	position: absolute;
-	bottom: 0;
+.animate {
+	-webkit-animation: rise 5s; /* Chrome, Safari, Opera */
+  animation: rise 5s;
 }
 
 .text {
