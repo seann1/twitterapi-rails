@@ -16,12 +16,12 @@
 //= require_tree .
 //= require jquery.easing
 
-//this function shuffles an array
+
 
 
 function tweetDisplay() {
 
-
+//this function shuffles an array, I use it to shuffle indexes to make words of the tweet float up in random sequence
 	function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -48,7 +48,7 @@ function tweetDisplay() {
   rotateY: '360deg'
 	});
 
-	//looping through the array of words in tweet
+	//looping through the array of words in tweet and appending divs containing each word to index page
 	for (i = 0; i < gon.text_array.length; i++) {
 		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
@@ -75,12 +75,13 @@ function tweetDisplay() {
 		delay_number += 300;
 	}
 
-	var shuffled_array = shuffle(gon.text_array);
+	// var shuffled_array = shuffle(gon.text_array);
+	
 	function randomInt(min,max) {
 		return Math.floor(Math.random()*(max-min+1)+min);
 	}
 
-		for (i = 0; i < shuffled_array.length; i++) {
+		for (i = 0; i < gon.text_array.length; i++) {
 			//this function generates a random number between two numbers
 
 			var targeted_delay_span = ".text"+i;
