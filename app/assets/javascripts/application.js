@@ -17,9 +17,9 @@
 //= require jquery.easing
 
 
+//shuffle array of tweet objects
 
-
-function tweetDisplay() {
+function tweetDisplay(array) {
 
 //this function shuffles an array, I use it to shuffle indexes to make words of the tweet float up in random sequence
 	function shuffle(array) {
@@ -41,6 +41,24 @@ function tweetDisplay() {
   return array;
 }
 
+var current_tweet = array[Math.floor(Math.random()*array.length)];
+current_tweet = current_tweet.text.split(" ");
+var hashtags = [];
+var no_link_array = [];
+
+for (i = 0; i < current_tweet.length; i++) {
+	if (current_tweet[i].substring(0, 3).toLowerCase() === "http" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
+		//dont push to new array
+	}
+	else if (current_tweet[i].substring(0,1) === "#") {
+		hashtags.push(current_tweet[i]);
+		no_link_array.push(current_tweet[i]);
+	} else {
+		no_link_array.push(current_tweet[i]);
+	}
+}
+
+
 
 	//rotate container div for tweet
 	$('.tweet_text').delay(200).transition({
@@ -49,42 +67,45 @@ function tweetDisplay() {
 	});
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
-	for (i = 0; i < gon.text_array.length; i++) {
-		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
+	for (i = 0; i < no_link_array.length; i++) {
+		$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
 		$(targeted_div).addClass("text");
 	}
 
-	for (i = 0; i < gon.hashtags.length; i++) {
+	for (i = 0; i < hashtags.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
-		var tagless = gon.hashtags[i].substr(1);
-		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + gon.hashtags[i] + " " + "</a>");
+		var tagless = hashtags[i].substr(1);
+		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + hashtags[i] + " " + "</a>");
 	}
 
 
 	var delay_number = 1000;
 
+	var indexes_array = [];
+
 	//loop through each word
-	for (i = 0; i < gon.text_array.length; i++) {
+	for (i = 0; i < no_link_array.length; i++) {
 
 		//fade words in in sequence
 		var targeted_span = ".text"+i;
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
 		delay_number += 300;
+		indexes_array.push(i);
 	}
 
-	// var shuffled_array = shuffle(gon.text_array);
+	var shuffled_array = shuffle(indexes_array);
 	
 	function randomInt(min,max) {
 		return Math.floor(Math.random()*(max-min+1)+min);
 	}
 
-		for (i = 0; i < gon.text_array.length; i++) {
+		for (i = 0; i < no_link_array.length; i++) {
 			//this function generates a random number between two numbers
 
-			var targeted_delay_span = ".text"+i;
+			var targeted_delay_span = ".text" + shuffled_array[i];
 		//animate rising and fading out at random delays
 		$(targeted_delay_span).delay(randomInt(3000, 4000)).animate({
 bottom: "+=300px",
@@ -95,7 +116,7 @@ opacity: 0,
 	var hashtag_delay_number = 500;
 
 	//loop through each hashtag
-	for (i = 0; i < gon.hashtags.length; i++) {
+	for (i = 0; i < hashtags.length; i++) {
 
 		var targeted_hashtag_span = ".hashtag"+i;
 			$(targeted_hashtag_span).hide();
@@ -115,12 +136,33 @@ opacity: 0,
 
 //call function on page load
 $(document).ready(function () {
-	tweetDisplay();
+	function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+var shuffled_tweets = shuffle(gon.no_retweets);
+
+	tweetDisplay(shuffled_tweets);
 
 //call function on setInterval
 setInterval(function() {
 
-	tweetDisplay();
+	tweetDisplay(shuffled_tweets);
 	
 
 }, (13 * 1000));
