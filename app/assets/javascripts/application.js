@@ -76,11 +76,15 @@ setInterval(function() {
 			delay_number += 300;
 	};
 
-setTimeout(function() {
-	$(".text").fadeOut().remove();
-	$(".hashtag").fadeOut().remove();
-}, (18 * 1000));
+	setTimeout(function() {
+		$(".text").fadeOut(1000, function() {
+			$(this).remove();
+		});
+		$(".hashtag").fadeOut(1000, function() {
+			$(this).remove();
+		});
+	}, (8 * 1000));
 
-}, (20 * 1000));
+}, (13 * 1000));
 
 });
