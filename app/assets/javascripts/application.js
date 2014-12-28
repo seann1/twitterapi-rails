@@ -16,6 +16,26 @@
 //= require_tree .
 //= require jquery.easing
 
+//this function shuffles an array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+};
+
 function tweetDisplay() {
 	//rotate container div for tweet
 	$('.tweet_text').delay(200).transition({
@@ -28,8 +48,6 @@ function tweetDisplay() {
 		$(".tweet_text").append("<div class=" + "text" + i + ">" + gon.text_array[i] + " " + "</div>");
 		var targeted_div = ".text"+i;
 		$(targeted_div).addClass("text");
-
-
 	};
 
 	for (i = 0; i < gon.hashtags.length; i++) {
@@ -50,27 +68,22 @@ function tweetDisplay() {
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
 		delay_number += 300;
-		
-		// //create random 4 digit number to use in animate and delay
-		// var random_delay = Math.floor(Math.random()*8000);
+	};
 
-		// //if statement to narrow range of random_delay
-		// if (random_delay < 1500) {
-		// 	random_delay = random_delay + 500;
-		// } else if (random_delay > 3000) {
-		// 	random_delay = random_delay - 1000;
-		// } else {
+	var shuffled_array = shuffle(gon.text_array);
 
-		// };
+	for (i = 0; i < shuffled_array.length; i++) {
+		//this function generates a random number between two numbers
+		function randomInt(min,max) {
+    	return Math.floor(Math.random()*(max-min+1)+min);
+		};
 
-		var random_delay = [4000, 4180, 4200, 4300, 4400, 3673, 4055, 3888, 3388];
-		var chosen_delay = random_delay[Math.floor(Math.random()*random_delay.length)];
+
 		//animate rising and fading out at random delays
-		$(targeted_span).delay((chosen_delay)).animate({ 
+		$(targeted_span).delay(randomInt(3000, 4000)).animate({ 
 	        bottom: "+=300px",
 	        opacity: 0,
 	    }, 1000, "easeInQuint");
-	};
 
 	var hashtag_delay_number = 500;
 
@@ -89,10 +102,8 @@ function tweetDisplay() {
 		});
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
-		});
+		}
 	}, (10 * 1000));
-
-};
 
 
 //call function on page load
