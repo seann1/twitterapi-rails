@@ -17,6 +17,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@-webkit-keyframes rise {
+    from {bottom: 0px;}
+    to {bottom: 300px;}
+}
+
+/* Standard syntax */
+@keyframes rise {
+    from {bottom: 0px;}
+    to {bottom: 300px;}
+}
+
 
 .tweet_text {
 	background-color: #fe001a;

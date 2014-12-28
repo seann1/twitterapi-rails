@@ -14,6 +14,7 @@ gem 'pry'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'gon'
+gem 'jquery-easing-rails'
 
 group :development do
   gem 'better_errors'
