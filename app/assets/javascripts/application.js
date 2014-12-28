@@ -17,7 +17,12 @@
 //= require jquery.easing
 
 //this function shuffles an array
-function shuffle(array) {
+
+
+function tweetDisplay() {
+
+
+	function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -34,9 +39,9 @@ function shuffle(array) {
   }
 
   return array;
-};
+}
 
-function tweetDisplay() {
+
 	//rotate container div for tweet
 	$('.tweet_text').delay(200).transition({
   	perspective: '100px',
@@ -72,10 +77,10 @@ function tweetDisplay() {
 
 	var shuffled_array = shuffle(gon.text_array);
 
-	for (i = 0; i < shuffled_array.length; i++) {
-		//this function generates a random number between two numbers
-		function randomInt(min,max) {
-    	return Math.floor(Math.random()*(max-min+1)+min);
+		for (i = 0; i < shuffled_array.length; i++) {
+			//this function generates a random number between two numbers
+			function randomInt(min,max) {
+	    	return Math.floor(Math.random()*(max-min+1)+min);
 		};
 
 
@@ -84,6 +89,7 @@ function tweetDisplay() {
 	        bottom: "+=300px",
 	        opacity: 0,
 	    }, 1000, "easeInQuint");
+	};
 
 	var hashtag_delay_number = 500;
 
@@ -102,9 +108,8 @@ function tweetDisplay() {
 		});
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
-		}
 	}, (10 * 1000));
-
+}
 
 //call function on page load
 $(document).ready(function () {
