@@ -48,8 +48,12 @@ var no_link_array = [];
 
 //looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
-	if (current_tweet[i].substring(0, 4) == "http" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
-		//dont push to new array
+	debugger
+	if (current_tweet[i].substring(0, 5) == "http:" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
+		current_tweet[i] = "";
+	} 
+	else if (current_tweet[i] === "#") {
+		no_link_array.push("<span class='no-font'>#</span>");
 	}
 	else if (current_tweet[i].substring(1).toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "coca-cola" || current_tweet[i].toLowerCase() === "coca cola") {
 		//put the word coca cola in coca cola font
@@ -75,8 +79,6 @@ for (i = 0; i < current_tweet.length; i++) {
   perspective: '100px',
   rotateY: '360deg'
 	});
-
-	// $('.tweet_text').css("rotateY")
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
 	//it changes classes on the parent div based on how many words are in the tweet
@@ -104,7 +106,7 @@ for (i = 0; i < current_tweet.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
 		var tagless = hashtags[i].substr(1);
-		var current_hashtag = "<div class='row row-hashtag hash-div'><a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a></div>"
+		var current_hashtag = "<div class='row row-hashtag hash-div'><a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a></div>";
 		if (i < 4) {
 			$(".hashtags").append(current_hashtag);
 		} else if (i < 7) {
