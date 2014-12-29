@@ -76,10 +76,15 @@ for (i = 0; i < current_tweet.length; i++) {
 	//rotate container div for tweet
 	$('.tweet_text').transition({
   perspective: '700px',
-  rotateY: '10deg',
+  rotateY: '5deg',
   rotateX: '10deg',
-  rotateZ: '20deg'
-	}, 6000);
+  rotateZ: '30deg'
+	}, 6000, 'easeOutQuart').transition({
+  perspective: '700px',
+  rotateY: '-10deg',
+  rotateX: '-10deg',
+  rotateZ: '-20deg'
+	}, 3000, 'easeInQuart');
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
 	//it changes classes on the parent div based on how many words are in the tweet
