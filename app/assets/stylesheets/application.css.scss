@@ -19,10 +19,19 @@
 
 @font-face {
 	font-family: 'Coke';
-	src:font-url('URSB.ttf'),
-	font-url('URSB.ttf') format('truetype');
+	src:url('URSB.ttf'),
+	url('URSB.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
 }
 
+@font-face {
+	font-family: 'coca-cola';
+	src: asset-url('loki-cola.ttf'),
+	asset-url('loki-cola.ttf') format('truetype');
+	font-weight: normal;
+  font-style: normal;
+}
 
 .tweet_text_outer {
 	background-color: #fe001a;
@@ -37,7 +46,7 @@
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
-	font-family: "Coke";
+	font-family: "coca-cola";
 }
 
 .text {
@@ -63,4 +72,5 @@
 	margin: 5px;
 	border-radius: 5px;
 	color: white;
+	font-family: "coca-cola";
 }
