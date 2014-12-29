@@ -77,9 +77,17 @@ for (i = 0; i < current_tweet.length; i++) {
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
 	for (i = 0; i < no_link_array.length; i++) {
-		$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
-		var targeted_div = ".text"+i;
-		$(targeted_div).addClass("text");
+		if (no_link_array.length < 12) {
+			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+			var targeted_div = ".text"+i;
+			$(targeted_div).addClass("text");
+		} else {
+			//if the tweet is longer than 12 words remove tweet_text class and add small_tweet_text class	
+			$(".tweet_text").addClass("small_tweet_text").removeClass("tweet_text");
+			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+		  var targeted_div = ".text"+i;
+			$(targeted_div).addClass("text");
+		}
 	}
 
 	for (i = 0; i < hashtags.length; i++) {
@@ -173,7 +181,7 @@ var shuffled_tweets = shuffle(gon.no_retweets);
 
 //call function on setInterval
 setInterval(function() {
-
+	$(".small_tweet_text").addClass("tweet_text").removeClass("small_tweet_text");
 	tweetDisplay(shuffled_tweets);
 	
 
