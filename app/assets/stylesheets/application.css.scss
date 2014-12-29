@@ -17,15 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@-webkit-keyframes rise {
-    from {bottom: 0px;}
-    to {bottom: 300px;}
-}
-
-/* Standard syntax */
-@keyframes rise {
-    from {bottom: 0px;}
-    to {bottom: 300px;}
+@font-face {
+	font-family: 'Coke';
+	src:font-url('URSB.ttf'),
+	font-url('URSB.ttf') format('truetype');
 }
 
 
@@ -42,6 +37,7 @@
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
+	font-family: "Coke";
 }
 
 .text {
