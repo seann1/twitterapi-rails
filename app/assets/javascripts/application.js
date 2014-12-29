@@ -86,7 +86,7 @@ for (i = 0; i < current_tweet.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
 		var tagless = hashtags[i].substr(1);
-		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + hashtags[i] + " " + "</a>");
+		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a>");
 	}
 
 
