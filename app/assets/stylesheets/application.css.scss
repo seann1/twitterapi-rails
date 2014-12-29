@@ -83,17 +83,17 @@
 	position: relative;
 }
 
-.space {
-	height: 300px;
-	background-color: #fe001a;
-}
+// .space {
+// 	height: 300px;
+// 	background-color: #fe001a;
+// }
 
-.hashtags {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 100px;
-	padding-left: 100px;
-}
+// .hashtags {
+// 	padding-top: 10px;
+// 	padding-bottom: 10px;
+// 	padding-right: 100px;
+// 	padding-left: 100px;
+// }
 
 .hashtag {
 	padding: 7px;
@@ -101,6 +101,7 @@
 	margin: 5px;
 	border-radius: 5px;
 	color: white;
-	font-family: "coca-cola";
-	font-size: 2em;
+	font-family: "Coke";
+	font-size: .7em;
+	// display: inline;
 }

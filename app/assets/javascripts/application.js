@@ -94,7 +94,7 @@ for (i = 0; i < current_tweet.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
 		var tagless = hashtags[i].substr(1);
-		$(".hashtags").append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a>");
+		$(".hash" + (i + 1)).append("<a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a>");
 	}
 
 
@@ -185,6 +185,6 @@ setInterval(function() {
 	tweetDisplay(shuffled_tweets);
 	
 
-}, (13 * 1000));
+}, (11 * 1000));
 
 });
