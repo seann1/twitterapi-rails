@@ -38,17 +38,6 @@
 	height: 350px;
 }
 
-.no-font {
-	font-family: Serif;
-	font-size: 1.7em;
-	position: relative;
-	top: 7px;
-}
-
-.no-font-hash {
-	font-family: Serif;
-}
-
 .tweet_text {
 	color: white;
 	font-size: 3em;
@@ -58,6 +47,17 @@
 	padding-right: 100px;
 	padding-left: 100px;
 	font-family: "Coke";
+}
+
+.no-font {
+	font-family: Serif;
+	font-size: 1.7em;
+	position: relative;
+	top: 7px;
+}
+
+.no-font-hash {
+	font-family: Serif;
 }
 
 .small_tweet_text {
