@@ -19,10 +19,10 @@
 
 @font-face {
 	font-family: 'Coke';
-	src:url('URSB.ttf'),
-	url('URSB.ttf') format('truetype');
-	font-weight: normal;
-  font-style: normal;
+	src: asset-url('brimborion.ttf'),
+	asset-url('brimborion.ttf') format('truetype');
+	font-weight: bold;
+  font-style: bold;
 }
 
 @font-face {
@@ -46,7 +46,7 @@
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 100px;
-	font-family: "coca-cola";
+	font-family: "Coke";
 }
 
 .text {
