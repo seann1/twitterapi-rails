@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 
 @font-face {
@@ -98,10 +98,13 @@
 .hashtag {
 	padding: 7px;
 	background-color: black;
-	margin: 5px;
-	border-radius: 5px;
+	margin: 20px;
 	color: white;
 	font-family: "Coke";
 	font-size: .7em;
-	// display: inline;
+}
+
+.hash-div {
+	margin: 15px;
+	width: 100px;
 }

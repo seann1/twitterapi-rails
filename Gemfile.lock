@@ -204,7 +204,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.1.1)
+  bootstrap-sass
   coffee-rails
   dotenv-rails
   gon
@@ -215,7 +215,7 @@ DEPENDENCIES
   quiet_assets
   rails
   rspec-rails
-  sass-rails (>= 3.2)
+  sass-rails
   shoulda-matchers
   sqlite3
   turbolinks
