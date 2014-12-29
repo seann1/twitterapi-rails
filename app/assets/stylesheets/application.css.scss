@@ -51,7 +51,7 @@
 
 .tweet_text {
 	color: white;
-	font-size: 2.5em;
+	font-size: 3em;
 	font-weight: bold;
 	padding-top: 100px;
 	padding-bottom: 10px;
@@ -71,11 +71,23 @@
 	font-family: "Coke";
 }
 
+.large_tweet_text {
+	color: white;
+	font-size: 7em;
+	font-weight: bold;
+	padding-top: 100px;
+	padding-bottom: 10px;
+	padding-right: 100px;
+	padding-left: 100px;
+	font-family: "Coke";
+}
+
 .coca-cola-logo {
 	font-family: "coca-cola";
 	font-size: 1.5em;
 	position: relative;
 	top: 9px;
+	margin-bottom: -15px;
 }
 
 .text {
@@ -102,6 +114,10 @@
 	color: white;
 	font-family: "Coke";
 	font-size: .7em;
+}
+
+.no-rotate {
+	transform: rotateY(0deg);
 }
 
 .hash-div {

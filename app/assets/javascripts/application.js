@@ -70,20 +70,28 @@ for (i = 0; i < current_tweet.length; i++) {
 
 
 	//rotate container div for tweet
+	$('.tweet_text').addClass("no-rotate");
 	$('.tweet_text').delay(200).transition({
   perspective: '100px',
   rotateY: '360deg'
 	});
 
-	$('.tweet_text').css({})
+	// $('.tweet_text').css("rotateY")
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
+	//it changes classes on the parent div based on how many words are in the tweet
 	for (i = 0; i < no_link_array.length; i++) {
-		if (no_link_array.length < 12) {
+		if (no_link_array.length < 8) {
 			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 			var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
-		} else {
+		} else if (no_link_array.length < 6) {
+			$(".tweet_text").addClass("large_tweet_text").removeClass("tweet_text");
+			$(".large_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+		  var targeted_div = ".text"+i;
+			$(targeted_div).addClass("text");
+		}
+		else {
 			//if the tweet is longer than 12 words remove tweet_text class and add small_tweet_text class	
 			$(".tweet_text").addClass("small_tweet_text").removeClass("tweet_text");
 			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
@@ -96,7 +104,16 @@ for (i = 0; i < current_tweet.length; i++) {
 		//loop through an array of hashtags in tweet
 		//remove hash symbol from beginning of hashtag to use word in link
 		var tagless = hashtags[i].substr(1);
-		$(".hashtags").append("<div class='row hash-div'><a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a></div>");
+		var current_hashtag = "<div class='row row-hashtag hash-div'><a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a></div>"
+		if (i < 4) {
+			$(".hashtags").append(current_hashtag);
+		} else if (i < 7) {
+			$(".hashtags2").append(current_hashtag);
+		} else if (i < 10) {
+			$(".hashtags3").append(current_hashtag);
+		} else {
+			$(".hashtags4").append(current_hashtag);
+		}
 	}
 
 
@@ -154,7 +171,7 @@ opacity: 0,
 			$(this).remove();
 		});
 
-		$(".row").fadeOut(1000, function() {
+		$(".row-hashtag").fadeOut(1000, function() {
 			$(this).remove();
 		});
 		}, (8 * 1000));
@@ -188,6 +205,8 @@ var shuffled_tweets = shuffle(gon.no_retweets);
 //call function on setInterval
 setInterval(function() {
 	$(".small_tweet_text").addClass("tweet_text").removeClass("small_tweet_text");
+	$(".large_tweet_text").addClass("tweet_text").removeClass("large_tweet_text");
+
 	tweetDisplay(shuffled_tweets);
 	
 
