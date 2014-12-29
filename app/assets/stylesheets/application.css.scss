@@ -38,6 +38,10 @@
 	height: 350px;
 }
 
+.no-font {
+	font-family: Serif;
+}
+
 .tweet_text {
 	color: white;
 	font-size: 2.5em;
@@ -47,6 +51,13 @@
 	padding-right: 100px;
 	padding-left: 100px;
 	font-family: "Coke";
+}
+
+.coca-cola-logo {
+	font-family: "coca-cola";
+	font-size: 1.5em;
+	position: relative;
+	top: 9px;
 }
 
 .text {
@@ -67,10 +78,11 @@
 }
 
 .hashtag {
-	padding: 5px;
+	padding: 7px;
 	background-color: black;
 	margin: 5px;
 	border-radius: 5px;
 	color: white;
 	font-family: "coca-cola";
+	font-size: 2em;
 }

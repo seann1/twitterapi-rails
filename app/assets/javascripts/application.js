@@ -46,13 +46,22 @@ current_tweet = current_tweet.text.split(" ");
 var hashtags = [];
 var no_link_array = [];
 
+//looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
 	if (current_tweet[i].substring(0, 4).toLowerCase() === "http" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
 		//dont push to new array
 	}
-	else if (current_tweet[i].substring(0,1) === "#") {
-		hashtags.push(current_tweet[i]);
+	else if (current_tweet[i].substring(1).toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "coca-cola" || current_tweet[i].toLowerCase() === "coca cola") {
+		//put the word coca cola in coca cola font
+		current_tweet[i] = "<span class='no-font'>#</span><span class='coca-cola-logo'>CocaCola</span>";
 		no_link_array.push(current_tweet[i]);
+		hashtags.push("CocaCola");
+	}
+	else if (current_tweet[i].substring(0,1) === "#") {
+		//create span with different font in css so hashtags appear as hashtags
+		current_tweet_no_hash = "<span class='no-font'>#</span>" + current_tweet[i].substring(1, current_tweet[i].length);
+		hashtags.push(current_tweet[i].substring(1, current_tweet[i].length));
+		no_link_array.push(current_tweet_no_hash);
 	} else {
 		no_link_array.push(current_tweet[i]);
 	}
@@ -134,7 +143,7 @@ opacity: 0,
 		$(".hashtag").fadeOut(1000, function() {
 			$(this).remove();
 		});
-		}, (8 * 1000))
+		}, (8 * 1000));
 }
 
 //call function on page load
