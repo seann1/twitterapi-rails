@@ -86,6 +86,7 @@ for (i = 0; i < current_tweet.length; i++) {
   rotateZ: '-20deg'
 	}, 3000, 'easeInQuart');
 
+
 	//looping through the array of words in tweet and appending divs containing each word to index page
 	//it changes classes on the parent div based on how many words are in the tweet
 	for (i = 0; i < no_link_array.length; i++) {
