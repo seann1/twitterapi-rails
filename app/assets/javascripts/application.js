@@ -21,11 +21,19 @@
 
 function bubbles() {
 	for (i=0; i < 16; i++) {
+		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
+		var randomRight = Math.floor(Math.random()*(1000-0+1)+0);
+		var randomSize = Math.floor(Math.random()*(50-5+1)+5);
+
 		var bubble = document.createElement('div');
 		bubble.className = "bubble bubble" + i;
+		$(bubble).css("right", randomRight);
+		$(bubble).css("width", randomSize);
+		$(bubble).css("height", randomSize);
+
 		$(".tweet_text_outer").append(bubble);
 
-		$(bubble).animate({
+		$(bubble).delay(randomDelay).animate({
 			bottom: "+=500px",
 			opacity: 100
 		}, 5000, "easeInQuint");
@@ -139,13 +147,14 @@ for (i = 0; i < current_tweet.length; i++) {
 	}
 
 	var shuffled_array = shuffle(indexes_array);
+
+	//this function generates a random number between two numbers
 	
 	function randomInt(min,max) {
 		return Math.floor(Math.random()*(max-min+1)+min);
 	}
 
 		for (i = 0; i < no_link_array.length; i++) {
-			//this function generates a random number between two numbers
 
 			var targeted_delay_span = ".text" + shuffled_array[i];
 		//animate rising and fading out at random delays
@@ -169,6 +178,7 @@ opacity: 0,
 	setTimeout(function() {
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(13000).remove();
+			$(".bubble").remove();
 		});
 	}, (13 * 1000));
 }
