@@ -19,6 +19,14 @@
 
 //shuffle array of tweet objects
 
+function bubbles() {
+	$(".bubble1").animate({
+		bottom: "+=500px",
+		opacity: 100
+	}, 5000, "easeInQuint");
+
+}
+
 function tweetDisplay(array) {
 
 //this function shuffles an array, I use it to shuffle indexes to make words of the tweet float up in random sequence
@@ -48,7 +56,6 @@ var no_link_array = [];
 
 //looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
-	debugger
 	if (current_tweet[i].substring(0, 5) == "http:" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
 		current_tweet[i] = "";
 	} 
@@ -162,6 +169,7 @@ opacity: 0,
 
 //call function on page load
 $(document).ready(function () {
+	bubbles();
 	function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
