@@ -20,10 +20,16 @@
 //shuffle array of tweet objects
 
 function bubbles() {
-	$(".bubble1").animate({
-		bottom: "+=500px",
-		opacity: 100
-	}, 5000, "easeInQuint");
+	for (i=0; i < 16; i++) {
+		var bubble = document.createElement('div');
+		bubble.className = "bubble bubble" + i;
+		$(".tweet_text_outer").append(bubble);
+
+		$(bubble).animate({
+			bottom: "+=500px",
+			opacity: 100
+		}, 5000, "easeInQuint");
+	}
 
 }
 
@@ -199,6 +205,7 @@ setInterval(function() {
 	$(".large_tweet_text").addClass("tweet_text").removeClass("large_tweet_text");
 
 	tweetDisplay(shuffled_tweets);
+	bubbles();
 	
 
 }, (15 * 1000));
