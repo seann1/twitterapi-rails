@@ -57,13 +57,13 @@ for (i = 0; i < current_tweet.length; i++) {
 	}
 	else if (current_tweet[i].substring(1).toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "cocacola" || current_tweet[i].toLowerCase() === "coca-cola" || current_tweet[i].toLowerCase() === "coca cola") {
 		//put the word coca cola in coca cola font
-		current_tweet[i] = "<span class='no-font'>#</span><span class='coca-cola-logo'>CocaCola</span>";
+		current_tweet[i] = "<a href='https://twitter.com/search?q=%23cocacola' target='_blank' class='nostyle'>" + "<span class='no-font-cocacola'>#</span><span class='coca-cola-logo'>CocaCola</span></a>";
 		no_link_array.push(current_tweet[i]);
 		hashtags.push("CocaCola");
 	}
 	else if (current_tweet[i].substring(0,1) === "#") {
 		//create span with different font in css so hashtags appear as hashtags
-		current_tweet_no_hash = "<span class='no-font'>#</span>" + current_tweet[i].substring(1, current_tweet[i].length);
+		current_tweet_no_hash = "<a href=https://twitter.com/search?q=%23" + current_tweet[i].substring(1, current_tweet[i].length) + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + current_tweet[i].substring(1, current_tweet.length) + " " + "</a>"
 		hashtags.push(current_tweet[i].substring(1, current_tweet[i].length));
 		no_link_array.push(current_tweet_no_hash);
 	} else {
@@ -109,22 +109,6 @@ for (i = 0; i < current_tweet.length; i++) {
 		}
 	}
 
-	for (i = 0; i < hashtags.length; i++) {
-		//loop through an array of hashtags in tweet
-		//remove hash symbol from beginning of hashtag to use word in link
-		var tagless = hashtags[i].substr(1);
-		var current_hashtag = "<div class='row row-hashtag hash-div'><a href=https://twitter.com/search?q=%23" + tagless + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + hashtags[i] + " " + "</a></div>";
-		if (i < 4) {
-			$(".hashtags").append(current_hashtag);
-		} else if (i < 7) {
-			$(".hashtags2").append(current_hashtag);
-		} else if (i < 10) {
-			$(".hashtags3").append(current_hashtag);
-		} else {
-			$(".hashtags4").append(current_hashtag);
-		}
-	}
-
 
 	var delay_number = 1000;
 
@@ -133,7 +117,7 @@ for (i = 0; i < current_tweet.length; i++) {
 	//loop through each word
 	for (i = 0; i < no_link_array.length; i++) {
 
-		//fade words in in sequence
+		//fade words in sequence
 		var targeted_span = ".text"+i;
 		$(targeted_span).hide();
 		$(targeted_span).fadeIn(delay_number);
@@ -171,19 +155,9 @@ opacity: 0,
 
 	setTimeout(function() {
 		$(".text").fadeOut(1000, function() {
-			$(this).delay(10000).remove();
+			$(this).delay(13000).remove();
 		});
-	}, (10 * 1000));
-
-	setTimeout(function() {
-		$(".hashtag").fadeOut(1000, function() {
-			$(this).remove();
-		});
-
-		$(".row-hashtag").fadeOut(1000, function() {
-			$(this).remove();
-		});
-		}, (8 * 1000));
+	}, (13 * 1000));
 }
 
 //call function on page load
@@ -219,6 +193,6 @@ setInterval(function() {
 	tweetDisplay(shuffled_tweets);
 	
 
-}, (11 * 1000));
+}, (15 * 1000));
 
 });
