@@ -23,19 +23,27 @@ function bubbles() {
 	for (i=0; i < 16; i++) {
 		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
 		var randomRight = Math.floor(Math.random()*(1000-0+1)+0);
-		var randomSize = Math.floor(Math.random()*(50-5+1)+5);
+		var randomSize = Math.floor(Math.random()*(15-1+1)+1);
+		var randomBlur = Math.floor(Math.random()*(3-0+1)+0) + "px";
+		var randomBottom = Math.floor(Math.random()*(100-0+1)+0);
+		var randomOpacity = Math.floor(Math.random()*(100-1+1)+1);
 
 		var bubble = document.createElement('div');
 		bubble.className = "bubble bubble" + i;
 		$(bubble).css("right", randomRight);
 		$(bubble).css("width", randomSize);
 		$(bubble).css("height", randomSize);
+		$(bubble).css('filter', "blur(" + randomBlur + ")");
+		$(bubble).css("bottom", randomBottom);
+		$(bubble).css("opacity", randomOpacity);
 
+
+		$(bubble).hide();
 		$(".tweet_text_outer").append(bubble);
+		$(bubble).fadeIn(4000);
 
 		$(bubble).delay(randomDelay).animate({
-			bottom: "+=500px",
-			opacity: 100
+			bottom: "+=600px"
 		}, 5000, "easeInQuint");
 	}
 

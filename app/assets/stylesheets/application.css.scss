@@ -53,6 +53,8 @@
 	font-family: "Coke";
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
        0px -5px 35px rgba(255,255,255,0.3);
+  position: relative;
+  z-index: 100;
 }
 
 .small_tweet_text {
@@ -66,11 +68,13 @@
 	font-family: "Coke";
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
        0px -5px 35px rgba(255,255,255,0.3);
+  position: relative;
+  z-index: 100;
 }
 
 .large_tweet_text {
 	color: white;
-	font-size: 7em;
+	font-size: 5em;
 	font-weight: bold;
 	padding-top: 100px;
 	padding-bottom: 10px;
@@ -79,6 +83,8 @@
 	font-family: "Coke";
 	text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
        0px -5px 35px rgba(255,255,255,0.3);
+  position: relative;
+  z-index: 100;
 }
 
 
@@ -181,7 +187,4 @@
 	background-color: white;
 	border-radius: 100%;
 	position: absolute;
-	bottom: 60px;
-	opacity: 0;
-	filter: blur(5px);
 }
