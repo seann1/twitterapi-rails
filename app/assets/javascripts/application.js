@@ -74,11 +74,15 @@ function tweetDisplay(array) {
 
 var current_tweet = array[Math.floor(Math.random()*array.length)];
 var tweet_user = current_tweet.user;
-var user_image = tweet_user.profile_image_url
-debugger;
+var user_image = tweet_user.profile_image_url;
 current_tweet = current_tweet.text.split(" ");
 var hashtags = [];
 var no_link_array = [];
+
+
+//append username to user-info div
+$(".user-info").append("<p class='username'>" + "@" + tweet_user.screen_name + "</p>");
+$(".user-info").append("<img class='user-image' src='" + user_image + "'></img>");
 
 //looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
@@ -194,6 +198,8 @@ opacity: 0,
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(13000).remove();
 			$(".bubble").remove();
+			$(".username").remove();
+			$(".user-image").remove();
 		});
 	}, (13 * 1000));
 }
