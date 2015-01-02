@@ -19,6 +19,7 @@
 
 //shuffle array of tweet objects
 
+//this function creates 30 bubbles in css and appends them to the outer div
 function bubbles() {
 	for (i=0; i < 30; i++) {
 		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
@@ -72,6 +73,9 @@ function tweetDisplay(array) {
 }
 
 var current_tweet = array[Math.floor(Math.random()*array.length)];
+var tweet_user = current_tweet.user;
+var user_image = tweet_user.profile_image_url
+debugger;
 current_tweet = current_tweet.text.split(" ");
 var hashtags = [];
 var no_link_array = [];
