@@ -20,12 +20,13 @@
 //shuffle array of tweet objects
 
 function bubbles() {
-	for (i=0; i < 16; i++) {
+	for (i=0; i < 30; i++) {
 		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
+		var randomFadein = Math.floor(Math.random()*(3000-500+1)+500);
 		var randomRight = Math.floor(Math.random()*(1000-0+1)+0);
-		var randomSize = Math.floor(Math.random()*(15-1+1)+1);
+		var randomSize = Math.floor(Math.random()*(7-1+1)+1);
 		var randomBlur = Math.floor(Math.random()*(3-0+1)+0) + "px";
-		var randomBottom = Math.floor(Math.random()*(100-0+1)+0);
+		var randomBottom = Math.floor(Math.random()*(1000-0+1)+0);
 		var randomOpacity = Math.floor(Math.random()*(100-1+1)+1);
 
 		var bubble = document.createElement('div');
@@ -40,9 +41,8 @@ function bubbles() {
 
 		$(bubble).hide();
 		$(".tweet_text_outer").append(bubble);
-		$(bubble).fadeIn(4000);
 
-		$(bubble).delay(randomDelay).animate({
+		$(bubble).delay(randomDelay).fadeIn(randomFadein).animate({
 			bottom: "+=600px"
 		}, 5000, "easeInQuint");
 	}
@@ -78,8 +78,11 @@ var no_link_array = [];
 
 //looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
-	if (current_tweet[i].substring(0, 5) == "http:" || current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
+	if (current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
 		current_tweet[i] = "";
+	}
+	else if (current_tweet[i].substring(0, 4) === "http") {
+		no_link_array.push("<a href='" + current_tweet[i] + "'></a>");
 	} 
 	else if (current_tweet[i] === "#") {
 		no_link_array.push("<span class='no-font'>#</span>");
