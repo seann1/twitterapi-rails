@@ -14,6 +14,9 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @font-face {
 	font-family: 'Coke';
 	src: asset-url('brimborion.ttf'),
