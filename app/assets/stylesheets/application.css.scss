@@ -46,6 +46,8 @@
 	position: absolute;
 	background-image: image-url("coke-stripe.svg");
 	opacity: 0.5;
+	width: 100%;
+	height: 100%;
 }
 
 .tweet_text {
@@ -61,7 +63,7 @@
        0px -5px 35px rgba(255,255,255,0.3);
   position: relative;
   z-index: 100;
-  opacity: 100%;
+  opacity: 100;
 }
 
 .small_tweet_text {

@@ -25,7 +25,7 @@ function bubbles() {
 		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
 		var randomFadein = Math.floor(Math.random()*(3000-500+1)+500);
 		var randomRight = Math.floor(Math.random()*(1000-0+1)+0);
-		var randomSize = Math.floor(Math.random()*(7-1+1)+1);
+		var randomSize = Math.floor(Math.random()*(10-1+1)+1);
 		var randomBlur = Math.floor(Math.random()*(3-0+1)+0) + "px";
 		var randomBottom = Math.floor(Math.random()*(1000-0+1)+0);
 		var randomOpacity = Math.floor(Math.random()*(100-1+1)+1);
