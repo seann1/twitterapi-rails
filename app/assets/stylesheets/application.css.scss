@@ -14,9 +14,6 @@
  *= require_self
  */
 
-// @import "bootstrap-sprockets";
-@import "bootstrap";
-
 @font-face {
 	font-family: 'Coke';
 	src: asset-url('brimborion.ttf'),
@@ -42,6 +39,11 @@
   left:0px;
 }
 
+.coke-image {
+	position: absolute;
+	background-image: image-url("coke-stripe.svg");
+}
+
 .tweet_text {
 	color: white;
 	font-size: 5em;
@@ -55,6 +57,7 @@
        0px -5px 35px rgba(255,255,255,0.3);
   position: relative;
   z-index: 100;
+  opacity: 100%;
 }
 
 .small_tweet_text {
@@ -95,7 +98,10 @@
 }
 
 .no-font-hash {
-	font-size: 1em;
+	font-family: Serif;
+	font-size: 1.5em;
+	position: relative;
+	top: 8px;
 }
 
 .no-font-cocacola {
@@ -116,10 +122,6 @@
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
 
-}
-
-.no-font-hash {
-	font-family: Serif;
 }
 .coca-cola-logo {
 	font-family: "coca-cola";

@@ -192,15 +192,14 @@ opacity: 0,
 
 	var hashtag_delay_number = 500;
 
-	//loop through each hashtag
+			$(".user-container").delay(10000).transition({
+			bottom:"+=10px;"
+			}, 200, "easeOutQuint").transition({
+			bottom: "-=200px"
+			}, 500);
 
 	setTimeout(function() {
 		//transition to make info-container div slide down off screen
-		$(".user-container").transition({
-			bottom:"+=10px;"
-		}, 200, "easeOutQuint").transition({
-			bottom: "-=200px"
-		}, 500);
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(13000).remove();
 			$(".bubble").remove();
