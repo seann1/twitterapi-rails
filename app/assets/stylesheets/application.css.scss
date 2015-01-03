@@ -194,7 +194,7 @@
 .user-container {
 	position: fixed;
 	background-color: rgba(0,0,0,0.3);
-	height: 70px;
+	height: 62px;
 	width: 200px;
 	right: 0px;
 	bottom: 0px;
@@ -210,10 +210,17 @@
 	top: 5px;
 }
 
+.user-image {
+	height: 50px;
+	width: 50px;
+	border-radius: 2px;
+}
+
 .user-info {
 	position: absolute;
 	color: white;
+	text-shadow: 2px 2px 5px #000;
 	left: 60px;
-	bottom: 5px;
+	bottom: 0px;
 
 }
