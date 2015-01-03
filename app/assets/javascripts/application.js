@@ -78,7 +78,6 @@ var user_image = tweet_user.profile_image_url.replace("_normal", "_bigger");
 current_tweet = current_tweet.text.split(" ");
 var hashtags = [];
 var no_link_array = [];
-debugger;
 
 
 //append username to user-info div
@@ -86,6 +85,10 @@ $(".user-photo").append("<img class='user-image' src='" + user_image + "'></img>
 $(".user-info").append("<p class='username'>" + "@" + tweet_user.screen_name + "</p>");
 
 $(".user-photo, .user-info").hide();
+$(".user-container").css("bottom", "-200px");
+$(".user-container").show().transition({
+	bottom: "+=200px"
+}, 500, "easeOutQuint").addClass("animation-target");
 $(".user-photo, .user-info").fadeIn(2000);
 
 //looping through each word of current tweet
@@ -190,20 +193,20 @@ opacity: 0,
 	var hashtag_delay_number = 500;
 
 	//loop through each hashtag
-	for (i = 0; i < hashtags.length; i++) {
-
-		var targeted_hashtag_span = ".hashtag"+i;
-			$(targeted_hashtag_span).hide();
-			$(targeted_hashtag_span).fadeIn(hashtag_delay_number);
-			hashtag_delay_number += 500;
-	}
 
 	setTimeout(function() {
+		//transition to make info-container div slide down off screen
+		$(".user-container").transition({
+			bottom:"+=10px;"
+		}, 200, "easeOutQuint").transition({
+			bottom: "-=200px"
+		}, 500);
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(13000).remove();
 			$(".bubble").remove();
 			$(".username").remove();
 			$(".user-image").remove();
+			$(".user-container").hide();
 		});
 	}, (13 * 1000));
 }
