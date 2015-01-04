@@ -90,7 +90,7 @@ $(".user-photo, .user-info").hide();
 $(".user-container").css("bottom", "-200px");
 $(".user-container").show().transition({
 	bottom: "+=200px"
-}, 500, "easeOutQuint").addClass("animation-target");
+}, 500, "easeOutQuint");
 $(".user-photo, .user-info").fadeIn(2000);
 
 //looping through each word of current tweet
@@ -144,7 +144,7 @@ for (i = 0; i < current_tweet.length; i++) {
 			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 			var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
-		} else if (tweet_as_string.length > 60) {
+		} else if (tweet_as_string.length > 30) {
 			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 		  var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
@@ -194,7 +194,7 @@ opacity: 0,
 
 	var hashtag_delay_number = 500;
 
-			$(".user-container").delay(10000).transition({
+			$(".user-container").delay(9000).transition({
 			bottom:"+=10px;"
 			}, 200, "easeOutQuint").transition({
 			bottom: "-=200px"
@@ -209,7 +209,7 @@ opacity: 0,
 			$(".user-image").remove();
 			$(".user-container").hide();
 		});
-	}, (13 * 1000));
+	}, (11 * 1000));
 }
 
 //call function on page load
@@ -247,6 +247,6 @@ setInterval(function() {
 	bubbles();
 	
 
-}, (15 * 1000));
+}, (13 * 1000));
 
 });
