@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
-gem 'sqlite3'
 gem 'pry'
 gem 'autoprefixer-rails'
 gem 'gon'
