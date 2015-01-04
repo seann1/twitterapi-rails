@@ -29,6 +29,7 @@ function bubbles() {
 		var randomBlur = Math.floor(Math.random()*(3-0+1)+0) + "px";
 		var randomBottom = Math.floor(Math.random()*(1000-0+1)+0);
 		var randomOpacity = Math.floor(Math.random()*(100-1+1)+1);
+		var randomTime = Math.floor(Math.random()*(5000-3500+1)+3500);
 
 		var bubble = document.createElement('div');
 		bubble.className = "bubble bubble" + i;
@@ -45,7 +46,7 @@ function bubbles() {
 
 		$(bubble).delay(randomDelay).fadeIn(randomFadein).animate({
 			bottom: "+=600px"
-		}, 5000, "easeInQuint");
+		}, randomTime, "easeInQuint");
 	}
 
 }
