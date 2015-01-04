@@ -77,6 +77,7 @@ var current_tweet = array[Math.floor(Math.random()*array.length)];
 var tweet_user = current_tweet.user;
 var user_image = tweet_user.profile_image_url.replace("_normal", "_bigger");
 current_tweet = current_tweet.text.split(" ");
+var tweet_as_string = current_tweet.join(" ");
 var hashtags = [];
 var no_link_array = [];
 
@@ -136,22 +137,22 @@ for (i = 0; i < current_tweet.length; i++) {
 
 
 	//looping through the array of words in tweet and appending divs containing each word to index page
-	//it changes classes on the parent div based on how many words are in the tweet
+	//it looks at the tweet as a string and changes the font size of the tweet based on the length of the tweet
 	for (i = 0; i < no_link_array.length; i++) {
-		if (no_link_array.length < 8) {
-			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+		if (tweet_as_string.length > 100) {
+			$(".tweet_text").addClass("small_tweet_text").removeClass("tweet_text");
+			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 			var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
-		} else if (no_link_array.length < 6) {
-			$(".tweet_text").addClass("large_tweet_text").removeClass("tweet_text");
-			$(".large_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+		} else if (tweet_as_string.length > 60) {
+			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 		  var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
 		}
 		else {
-			//if the tweet is longer than 12 words remove tweet_text class and add small_tweet_text class	
-			$(".tweet_text").addClass("small_tweet_text").removeClass("tweet_text");
-			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
+			//if the tweet is longer than 12 words remove tweet_text class and add small_tweet_text class
+			$(".tweet_text").addClass("large_tweet_text").removeClass("tweet_text");
+			$(".large_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 		  var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
 		}
