@@ -82,8 +82,8 @@ var no_link_array = [];
 
 
 //append username to user-info div
-$(".user-photo").append("<img class='user-image' src='" + user_image + "'></img>");
-$(".user-info").append("<p class='username'>" + "@" + tweet_user.screen_name + "</p>");
+$(".user-photo").append("<a href='https://twitter.com/search?q=%40" + tweet_user.screen_name + "' target='_blank'><img class='user-image' src='" + user_image + "'></img></a>");
+$(".user-info").append("<a href='https://twitter.com/search?q=%40" + tweet_user.screen_name + "' target='_blank' class='nostyle'><p class='username'>" + "@" + tweet_user.screen_name + "</p></a>");
 
 $(".user-photo, .user-info").hide();
 $(".user-container").css("bottom", "-200px");
