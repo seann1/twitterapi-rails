@@ -20,6 +20,7 @@
 //shuffle array of tweet objects
 
 //this function creates 30 bubbles in css and appends them to the outer div
+var current_number = 0;
 function bubbles() {
 	for (i=0; i < 30; i++) {
 		var randomDelay = Math.floor(Math.random()*(6000-500+1)+500);
@@ -52,6 +53,11 @@ function bubbles() {
 }
 
 function tweetDisplay(array) {
+	if (current_number >= array.length) {
+		current_number = 0;
+	} else {
+	current_number += 1;
+	}
 
 //this function shuffles an array, I use it to shuffle indexes to make words of the tweet float up in random sequence
 	function shuffle(array) {
@@ -73,7 +79,8 @@ function tweetDisplay(array) {
   return array;
 }
 
-var current_tweet = array[Math.floor(Math.random()*array.length)];
+// var current_tweet = array[Math.floor(Math.random()*array.length)];
+var current_tweet = array[current_number];
 var tweet_user = current_tweet.user;
 var user_image = tweet_user.profile_image_url.replace("_normal", "_bigger");
 current_tweet = current_tweet.text.split(" ");
@@ -144,7 +151,7 @@ for (i = 0; i < current_tweet.length; i++) {
 			$(".small_tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 			var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
-		} else if (tweet_as_string.length > 30) {
+		} else if (tweet_as_string.length > 15) {
 			$(".tweet_text").append("<div class=" + "text" + i + ">" + no_link_array[i] + " " + "</div>");
 		  var targeted_div = ".text"+i;
 			$(targeted_div).addClass("text");
