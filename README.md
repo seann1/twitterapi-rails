@@ -4,6 +4,8 @@ This application displays the most recent tweets in english with #CocaCola with 
 
 [The application is live here](https://coca-cola-twitter.herokuapp.com/)
 
+![image](/app/assets/images/screenshot.png)
+
 License
 MIT
 
