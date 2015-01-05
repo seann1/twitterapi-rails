@@ -14,7 +14,7 @@ gem 'pry'
 gem 'autoprefixer-rails'
 gem 'gon'
 gem 'jquery-easing-rails'
-# gem 'sqlite3'
+gem 'sqlite3'
 
 group :development do
   gem 'better_errors'
