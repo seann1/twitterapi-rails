@@ -103,10 +103,11 @@ $(".user-photo, .user-info").fadeIn(2000);
 //looping through each word of current tweet
 for (i = 0; i < current_tweet.length; i++) {
 	if (current_tweet[i] === "...:" || current_tweet[i] === "&amp;") {
-		current_tweet[i] = "";
+		// current_tweet[i] = "";
 	}
-	else if (current_tweet[i].substring(0, 4) === "http") {
-		no_link_array.push("<a href='" + current_tweet[i] + "'></a>");
+	else if (current_tweet[i].indexOf("http") !== -1) {
+		no_link_array.push("<a href='" + current_tweet[i] + "'>(link)</a>");
+		// no_link_array.push("jfjfjfjfjf");
 	} 
 	else if (current_tweet[i] === "#") {
 		no_link_array.push("<span class='no-font'>#</span>");
@@ -252,7 +253,6 @@ setInterval(function() {
 
 	tweetDisplay(shuffled_tweets);
 	bubbles();
-	
 
 }, (13 * 1000));
 
