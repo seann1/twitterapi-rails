@@ -87,6 +87,7 @@ current_tweet = current_tweet.text.split(" ");
 var tweet_as_string = current_tweet.join(" ");
 var hashtags = [];
 var no_link_array = [];
+var link_array = [];
 
 
 //append username to user-info div
@@ -106,9 +107,8 @@ for (i = 0; i < current_tweet.length; i++) {
 		// current_tweet[i] = "";
 	}
 	else if (current_tweet[i].indexOf("http") !== -1) {
-		no_link_array.push("<a href='" + current_tweet[i] + "'>(link)</a>");
-		// no_link_array.push("jfjfjfjfjf");
-	} 
+		no_link_array.push("<a href='" + current_tweet[i] + "' class='nostyle smalltext' target='_blank'>" + current_tweet[i] + "</a>");
+	}
 	else if (current_tweet[i] === "#") {
 		no_link_array.push("<span class='no-font'>#</span>");
 	}
@@ -121,8 +121,10 @@ for (i = 0; i < current_tweet.length; i++) {
 	else if (current_tweet[i].substring(0,1) === "#") {
 		//create span with different font in css so hashtags appear as hashtags
 		current_tweet_no_hash = "<a href=https://twitter.com/search?q=%23" + current_tweet[i].substring(1, current_tweet[i].length) + " " + "target='_blank'" + " class=" + "'hashtag hashtag" + i + "'>" + "<span class='no-font-hash'>#</span>" + current_tweet[i].substring(1, current_tweet.length) + " " + "</a>";
-		hashtags.push(current_tweet[i].substring(1, current_tweet[i].length));
 		no_link_array.push(current_tweet_no_hash);
+	}
+	else if (current_tweet[i].substring(0,1) === "@") {
+		no_link_array.push("<a href='https://twitter.com/search?q=%40" + current_tweet[i].substring(1) + "' class='nostyle' target='_blank'>" + current_tweet[i] + "</a>");
 	} else {
 		no_link_array.push(current_tweet[i]);
 	}

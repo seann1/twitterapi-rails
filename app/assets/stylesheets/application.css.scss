@@ -64,7 +64,7 @@
 	color: white;
 	font-size: 3em;
 	font-weight: bold;
-	padding-top: 100px;
+	padding-top: 75px;
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 140px;
@@ -152,11 +152,9 @@
 .hashtag {
 	color: white;
 	transition: color, 1s;
-	-webkit-transition: color, 1s;
 }
 
 .hashtag:hover {
-	color: #878787;
 	text-decoration: none;
 }
 
@@ -177,6 +175,10 @@
 .nostyle {
 	color: white;
 	text-decoration: none !important;
+}
+
+.smalltext {
+	font-size: .5em;
 }
 
 .nostyle:hover {
