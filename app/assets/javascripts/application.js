@@ -211,6 +211,10 @@ opacity: 0,
 			}, 500);
 
 	setTimeout(function() {
+		$(".bubble").fadeOut(1000);
+	}, 9000);
+
+	setTimeout(function() {
 		//transition to make info-container div slide down off screen
 		$(".text").fadeOut(1000, function() {
 			$(this).delay(13000).remove();
