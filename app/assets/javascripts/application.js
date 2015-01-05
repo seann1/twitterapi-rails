@@ -256,6 +256,6 @@ setInterval(function() {
 	tweetDisplay(shuffled_tweets);
 	bubbles();
 
-}, (13 * 1000));
+}, (14 * 1000));
 
 });

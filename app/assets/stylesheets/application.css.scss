@@ -45,9 +45,9 @@
 
 .tweet_text {
 	color: white;
-	font-size: 3.5em;
+	font-size: 4.5em;
 	font-weight: bold;
-	padding-top: 75px;
+	padding-top: 100px;
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 140px;
@@ -62,9 +62,9 @@
 
 .small_tweet_text {
 	color: white;
-	font-size: 3em;
+	font-size: 4em;
 	font-weight: bold;
-	padding-top: 75px;
+	padding-top: 100px;
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 140px;
@@ -77,9 +77,9 @@
 
 .large_tweet_text {
 	color: white;
-	font-size: 4.5em;
+	font-size: 5.5em;
 	font-weight: bold;
-	padding-top: 60px;
+	padding-top: 80px;
 	padding-bottom: 10px;
 	padding-right: 100px;
 	padding-left: 140px;
@@ -151,7 +151,6 @@
 
 .hashtag {
 	color: white;
-	transition: color, 1s;
 }
 
 .hashtag:hover {
@@ -202,8 +201,8 @@
 .user-container {
 	position: fixed;
 	background-color: rgba(0,0,0,0.3);
-	height: 60px;
-	width: 200px;
+	height: 70px;
+	width: 220px;
 	right: 0px;
 	bottom: 0px;
 	z-index: 5;
@@ -219,8 +218,8 @@
 }
 
 .user-image {
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 60px;
 	border-radius: 2px;
 }
 
@@ -228,7 +227,7 @@
 	position: absolute;
 	color: white;
 	text-shadow: 2px 2px 5px #000;
-	left: 60px;
+	left: 70px;
 	bottom: -3px;
 
 }
