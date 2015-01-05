@@ -46,7 +46,7 @@ function bubbles() {
 		$(".tweet_text_outer").append(bubble);
 
 		$(bubble).delay(randomDelay).fadeIn(randomFadein).animate({
-			bottom: "+=650px"
+			bottom: "+=670px"
 		}, randomTime, "easeInQuint");
 	}
 
